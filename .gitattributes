@@ -1,2 +1,2 @@
 * linguist-vendored
-*.js linguist-language=javascript
+*.js linguist-vendored=false
