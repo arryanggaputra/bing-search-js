@@ -20,7 +20,10 @@ button {
     margin-bottom: 20px;
 }
 
-hr {}
+hr {
+    border: none;
+    border-bottom: 1px solid #ddd;
+}
 
 .siteList a {
     color: blue;

@@ -14,6 +14,7 @@
                 keyword: $('.keyword').val(),
                 onSuccess: function(response) {
                     var data = response.webPages.value;
+                    $('.result').html('');
                     for (var i = 0; i < data.length; i++) {
                         let situs = data[i];
                         let element = `
