@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bing Search API</title>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript" src="js/bingSearch.js"></script>
+    <script>
+    $(function() {
+        $('.find').click(function() {
+            $.bingSearch({
+                apiKey: 'fe3b8ed6b3f7446baa564c83efb1f931',
+                keyword: $('.keyword').val(),
+                onSuccess: function(response) {
+                    var data = response.webPages.value;
+                    for (var i = 0; i < data.length; i++) {
+                        let situs = data[i];
+                        let element = `
+                        	<div class="siteList">
+                         	<a href="${situs.url}" target="_blank">${situs.name}</a> <br/>
+                         	<span class="displayUrl">${situs.displayUrl}</span> <br/> 
+                         	${situs.snippet}
+                        	</div>
+                        `;
+                        $('.result').append(element);
+                    }
+                }
+            });
+        });
+    })
+    </script>
+</head>
+
+<body>
+</body>
+<input type="text" class="keyword" placeholder="Masukan Kata Kunci">
+<button class="find">CARI</button>
+<hr/>
+<div class="result"></div>
+
+</html>
